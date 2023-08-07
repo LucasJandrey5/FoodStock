@@ -22,4 +22,9 @@
         android:name="br.dev.lucasjandrey.mobile.foodstock.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_cad_food"
+        android:name="br.dev.lucasjandrey.mobile.foodstock.ui.food.CadFoodFragment"
+        android:label="fragment_cad_food"
+        tools:layout="@layout/fragment_cad_food" />
 </navigation>
