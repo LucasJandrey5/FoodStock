@@ -41,6 +41,25 @@
                 android:gravity="start|top"
                 android:inputType="textMultiLine" />
 
+            <TextView
+                android:id="@+id/PriceText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price" />
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
+
+            <CheckBox
+                android:id="@+id/comboCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="É combo?" />
+
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"
