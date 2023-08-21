@@ -45,7 +45,7 @@
                 android:id="@+id/PriceText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Price" />
+                android:text="Preço" />
 
             <EditText
                 android:id="@+id/editTextNumber"
@@ -59,6 +59,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="É combo?" />
+
+            <CheckBox
+                android:id="@+id/freeDeliveryCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Entrega Gratis?" />
 
             <Button
                 android:id="@+id/button"

@@ -3,12 +3,15 @@ package br.dev.lucasjandrey.mobile.foodstock.model;
 import org.json.JSONObject;
 
 public class Food {
-    int id;
-    String name;
-    String description;
-    float price;
+    private int id;
+    private String name;
+    private String description;
+    private float price;
+    private bool freeDelivery;
 
-    public FoodJson (JSONObject jp){
+
+    public void FoodJson (JSONObject jp){
+
         //id
         Integer num = (int) jp.get("id");
         this.setId(num);
@@ -20,11 +23,16 @@ public class Food {
         this.setDescription(s);
     }
 
-    public Food(int id, String name, String description, float price) {
+
+
+
+
+    public Food(int id, String name, String description, float price, bool freeDelivery) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.freeDelivery = freeDelivery;
     }
 
     public int getId() {
@@ -59,5 +67,13 @@ public class Food {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public bool getFreeDelivery() {
+        return freeDelivery;
+    }
+
+    public void setFreeDelivery(bool freeDelivery) {
+        this.freeDelivery = freeDelivery;
     }
 }

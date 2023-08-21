@@ -7,10 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import br.dev.lucasjandrey.mobile.foodstock.R;
 
 public class CadFoodFragment extends Fragment {
+
+    private View view = getView();
+    private EditText foodName;
 
     public CadFoodFragment() {
 
