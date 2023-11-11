@@ -9,7 +9,12 @@
     <item
         android:id="@+id/navigation_cad_food"
         android:icon="@android:drawable/ic_input_add"
-        android:title="@string/title_dashboard" />
+        android:title="Cadastrar lanche" />
+
+    <item
+        android:id="@+id/navigation_cad_restaurante"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Cadastrar restaurante" />
 
     <item
         android:id="@+id/navigation_notifications"

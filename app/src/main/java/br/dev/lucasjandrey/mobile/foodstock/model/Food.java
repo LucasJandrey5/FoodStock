@@ -1,5 +1,8 @@
 package br.dev.lucasjandrey.mobile.foodstock.model;
 
+import androidx.fragment.app.strictmode.FragmentStrictMode;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Food {
@@ -7,10 +10,11 @@ public class Food {
     private String name;
     private String description;
     private float price;
-    private bool freeDelivery;
+    private boolean freeDelivery;
+    private boolean combo;
 
 
-    public void FoodJson (JSONObject jp){
+    public void FoodJson (JSONObject jp) throws JSONException {
 
         //id
         Integer num = (int) jp.get("id");
@@ -21,18 +25,38 @@ public class Food {
 
         String s = (String) jp.get("description");
         this.setDescription(s);
+
+        Float p = (float) jp.get("price");
+        this.setPrice(num);
+
+
     }
 
+    //Metodo retorna o objeto com dados no formato JSON
+    public JSONObject toJsonObject() {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("idanimal", this.id);
+            json.put("nome", this.name);
+            json.put("descricao", this.description);
+            json.put("preco", this.price);
+            json.put("freteGratis", this.freeDelivery);
+            json.put("combo", this.combo);
 
 
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
 
-
-    public Food(int id, String name, String description, float price, bool freeDelivery) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.freeDelivery = freeDelivery;
+    public Food() {
+        this.setId(0);
+        this.setName("");
+        this.setDescription("");
+        this.setPrice(0);
+        this.setFreeDelivery(false);
+        this.setCombo(false);
     }
 
     public int getId() {
@@ -69,11 +93,19 @@ public class Food {
         this.price = price;
     }
 
-    public bool getFreeDelivery() {
+    public boolean getFreeDelivery() {
         return freeDelivery;
     }
 
-    public void setFreeDelivery(bool freeDelivery) {
+    public void setFreeDelivery(boolean freeDelivery) {
         this.freeDelivery = freeDelivery;
+    }
+
+    public boolean isCombo() {
+        return combo;
+    }
+
+    public void setCombo(boolean combo) {
+        this.combo = combo;
     }
 }
