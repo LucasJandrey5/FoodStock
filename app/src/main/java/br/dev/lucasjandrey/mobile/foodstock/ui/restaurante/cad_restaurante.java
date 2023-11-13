@@ -5,9 +5,11 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,13 +27,14 @@ import org.json.JSONObject;
 import br.dev.lucasjandrey.mobile.foodstock.R;
 import br.dev.lucasjandrey.mobile.foodstock.model.Restaurante;
 
-public class cad_restaurante extends Fragment {
+public class cad_restaurante extends Fragment  implements View.OnClickListener {
 
     private View view = null;
     private EditText nome;
     private EditText descricao;
     private EditText endereco;
     private EditText horario;
+    private Button salvar;
 
 
     private RequestQueue requestQueue;
@@ -47,11 +50,17 @@ public class cad_restaurante extends Fragment {
         this.descricao = (EditText) view.findViewById(R.id.etDescricao);
         this.endereco = (EditText) view.findViewById(R.id.etEndereco);
         this.horario = (EditText) view.findViewById(R.id.etHorario);
+        this.salvar = (Button) view.findViewById(R.id.btSalvar);
+        this.salvar.setOnClickListener(this);
+
+        this.requestQueue = Volley.newRequestQueue(view.getContext());
+//inicializando a fila de requests do SO
+        this.requestQueue.start();
 
         return this.view;
     }
 
-
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             //verificando se é o botão salvar
@@ -65,7 +74,7 @@ public class cad_restaurante extends Fragment {
                 //Chamar WebService
                 jsonObjectReq = new JsonObjectRequest(
                         Request.Method.POST,
-                        "http://localhost/teste/cadRestaurante.php ",
+                        "http://10.0.2.2/teste/cadRestaurante.php",
                         rest.toJsonObject(), this::onResponse,  this::onErrorResponse);
                 requestQueue.add(jsonObjectReq);
                 break;
@@ -79,6 +88,7 @@ public class cad_restaurante extends Fragment {
                 "Ops! Houve um problema ao realizar o cadastro: " +
                         error.toString(),Snackbar.LENGTH_LONG);
         mensagem.show();
+        Log.d("Error:",error.toString());
 
     }
 

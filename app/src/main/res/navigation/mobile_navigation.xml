@@ -27,4 +27,9 @@
         android:name="br.dev.lucasjandrey.mobile.foodstock.ui.food.CadFoodFragment"
         android:label="fragment_cad_food"
         tools:layout="@layout/fragment_cad_food" />
+    <fragment
+        android:id="@+id/navigation_cad_restaurante"
+        android:name="br.dev.lucasjandrey.mobile.foodstock.ui.restaurante.cad_restaurante"
+        android:label="fragment_cad_restaurante"
+        tools:layout="@layout/fragment_cad_restaurante" />
 </navigation>
